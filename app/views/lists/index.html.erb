@@ -15,13 +15,26 @@
       <% if list.completed %>
         <tr>
           <td class="table-success striker"><%= link_to list.description, edit_list_path(list) %></td>
+          <td><center>
+            <%= form_for(list) do |f| %>
+              <%= f.text_field :description, type: 'hidden' %>
+              <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+              <%= f.submit "Uncheck", class: 'btn btn-link btn-sm' %>
+            <% end %>
+          </center></td>
           <td><%# link_to 'Show', list %>
               <%# link_to 'Edit', edit_list_path(list) %>
               <center><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
         </tr>
       <% else %>
-        <tr>
           <td class="table-danger"><%= link_to list.description, edit_list_path(list) %></td>
+          <td><center>
+            <%= form_for(list) do |f| %>
+              <%= f.text_field :description, type: 'hidden' %>
+              <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+              <%= f.submit "Check", class: 'btn btn-link btn-sm' %>
+            <% end %>
+          </center></td>
           <td><%# link_to 'Show', list %>
               <%# link_to 'Edit', edit_list_path(list) %>
               <center><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
