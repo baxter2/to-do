@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+List.delete_all
+
+List.create!(description: 'Go to the gym',
+               completed: false)
+
+List.create!(description: 'Take out the trash',
+               completed: false)
+
+List.create!(description: 'Buy groceries',
+               completed: true)
+
+List.create!(description: 'Make coffee',
+               completed: false)
